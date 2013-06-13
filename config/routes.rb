@@ -62,4 +62,6 @@ NewsSubServ::Application.routes.draw do
   resources :users do
     resources :subscriptions
   end
+
+  resource :session
 end

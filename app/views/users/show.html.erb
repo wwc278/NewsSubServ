@@ -1,0 +1,17 @@
+<%= @user.name %>'s subscriptions
+<br>
+<br>
+
+<% @newspapers.uniq.each do |np| %>
+  <%= np.name %><br>
+    <% @sub_plans.each do |sub_plan| %>
+      <% if sub_plan.newspaper_id == np.id %>
+        Cost: $<%= sub_plan.price %> Weekly: <%= sub_plan.weekly %>
+        <br>
+      <% end %>
+
+    <% end %>
+    <br>
+<% end %>
+
+<%= link_to "Sign up a new user", new_user_url, :method => :get %>

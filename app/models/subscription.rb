@@ -3,4 +3,6 @@ class Subscription < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :subscription_plan
+
+  validates :user, :presence => true
 end
