@@ -1,0 +1,46 @@
+<h1> Make a newspaper </h1>
+
+<form action='<%= newspapers_url %>' method='post'>
+
+  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+
+  <label for='newspaper_title'>Title</label>
+  <input id='newspaper_title' type='text' name='newspaper[name]'>
+
+  <label for='newspaper_editor'>Editor</label>
+  <input id='newspaper_editor' type='text' name='newspaper[editor]'><br>
+  <br>
+
+  <% 3.times do |i| %>
+    <label for='sub_plan<%= i + 1 %>_price'>Subscription Plan <%= i + 1%></label>
+    <br>
+    $
+    <input id='sub_plan<%= i + 1 %>_price' 
+    type='text'
+    name='newspaper[subscription_plans_attributes][<%= i %>][price]'
+    placeholder='price'
+     >
+     <br>
+
+     <label for='sub_plan<%= i + 1 %>_weekly'></label>
+     <input id='sub_plan<%= i + 1 %>_weekly'
+     type='radio'
+     name='newspaper[subscription_plans_attributes][<%= i %>][weekly]'
+     value='true'
+     > Weekly <br>
+
+     <label for='sub_plan<%= i + 1 %>_daily'></label>
+     <input id='sub_plan<%= i + 1 %>_daily'
+     type='radio'
+     name='newspaper[subscription_plans_attributes][<%= i %>][weekly]'
+     value='false'
+     > Daily <br>
+     <br>
+
+
+  <% end %>
+
+
+  <input type='submit' value='submit'>
+
+</form>

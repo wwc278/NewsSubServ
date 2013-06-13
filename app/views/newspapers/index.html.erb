@@ -1,0 +1,13 @@
+<h1> All Newspapers </h1>
+
+<% Newspaper.all.each do |np| %>
+  <h2> Newspaper name: <%= np.name %></h2>
+  <%= link_to "Create a subscription plan", new_newspaper_subscription_plan_url(np),
+  :method => :get %>
+    <% np.subscription_plans.each do |sub_plan| %>
+      <h3> Cost: <%= sub_plan.price %> Weekly: <%= sub_plan.weekly %></h3>
+    <% end %>
+    <br>
+<% end %>
+
+<%= link_to "Create a Newspaper", new_newspaper_url, :method => :get %>

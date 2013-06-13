@@ -1,0 +1,36 @@
+<h1> Create a new subscription plan for "<%= @newspaper.name %>"</h1>
+
+<form action='<%= newspaper_subscription_plans_url(@newspaper)%>' method='post'>
+
+  <input type='hidden' name='authenticity_token' value='<%= form_authenticity_token %>'>
+
+  <label for='sub_plan_price'></label>
+
+  $
+  <input id='sub_plan_price' 
+  type='text'
+  name='sub_plan[price]'
+  placeholder='price'
+  >
+  <br>
+
+  <label for='sub_plan_weekly'></label>
+  <input id='sub_plan_weekly'
+  type='radio'
+  name='sub_plan[weekly]'
+  value='true'
+  > Weekly <br>
+
+  <label for='sub_plan_daily'></label>
+  <input id='sub_plan_daily'
+  type='radio'
+  name='sub_plan[weekly]'
+  value='false'
+  > Daily <br>
+  <br>
+
+  <input type='hidden' name='sub_plan[newspaper_id]' value='<%= @newspaper.id %>'>
+
+  <input type='submit' value='submit'>
+
+</form>

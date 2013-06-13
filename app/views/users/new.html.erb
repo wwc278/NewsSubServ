@@ -1,0 +1,17 @@
+<h1> Sign up for newspaper subscriptions</h1>
+
+<form action='<%= users_url %>' method='post'>
+
+  <label for='user_name'>Username or E-mail</label>
+  <input type='text' name='user[name]' id='user_name' >
+  <% Newspaper.all.each do |np| %>
+    <h2> Newspaper name: <%= np.name %></h2>
+      <% np.subscription_plans.each do |sub_plan| %>
+        <h3> Cost: <%= sub_plan.price %> Weekly: <%= sub_plan.weekly %></h3>
+      <% end %>
+      <br>
+  <% end %>
+
+  <input type='submit' value='submit'>
+
+</form>
