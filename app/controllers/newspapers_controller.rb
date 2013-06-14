@@ -10,7 +10,6 @@ class NewspapersController < ApplicationController
   end
 
   def create
-    debugger
     @newspaper = Newspaper.new(params[:newspaper])
     if @newspaper.save
       redirect_to newspapers_url

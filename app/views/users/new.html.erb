@@ -5,6 +5,9 @@
   <label for='user_name'>Username or E-mail</label>
   <input type='text' name='user[name]' id='user_name' >
 
+  <label for='user_password'>Password</label>
+  <input type='password' name='user[password]' id='user_password'>
+
   <% counter = 0 %>
   <% Newspaper.all.each_with_index do |np| %>
     <h2> Newspaper name: <%= np.name %></h2>
